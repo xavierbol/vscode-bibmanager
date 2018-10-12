@@ -19,6 +19,11 @@ export function activate(context: ExtensionContext) {
 
     let bibManager = new BibManager();
 
+    let checkFile = commands.registerCommand('extension.checkBibFile', ()=>{
+        window.showWarningMessage('Test');
+        bibManager.checkFile();
+    });
+
     let sortKeyAscending = commands.registerTextEditorCommand('extension.sortKeyAsc',()=>{
         bibManager.SortEntries(SortType.KeyAsc);
         window.showInformationMessage('Sorting By Key in Ascending Order');
@@ -38,6 +43,7 @@ export function activate(context: ExtensionContext) {
     });
 
     context.subscriptions.push(
+        checkFile,
         sortKeyAscending,
         sortKeyDescending,
         sortTitleAscending,
@@ -55,6 +61,10 @@ class BibManager{
 
     ResetBibList(){
         this.bibEntries = [];
+    }
+
+    checkFile(){
+        window.showWarningMessage("Warning");
     }
 
     UpdateBibList(){

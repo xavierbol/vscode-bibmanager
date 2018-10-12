@@ -38,6 +38,11 @@
     "contributes": {
         "commands": [
             {
+                "command": "extension.checkBibFile",
+                "category": "BibTex",
+                "title": "Check file for Errors"
+            },
+            {
                 "command": "extension.sortKeyAsc",
                 "category": "BibTex",
                 "title": "Sort Entries By Key (Ascending)"
@@ -76,6 +81,7 @@
         "vscode:prepublish": "npm run compile",
         "compile": "tsc -p ./",
         "watch": "tsc -watch -p ./",
+        "lint": "biber -tool -V",
         "postinstall": "node ./node_modules/vscode/bin/install",
         "test": "npm run compile && node ./node_modules/vscode/bin/test"
     },
